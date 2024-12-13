@@ -16,9 +16,10 @@ function App() {
         <Hero />
         <About />
         <Services />
+        <CTA />
         <Testimonials />
         <Contact />
-        <CTA />
+        
       </main>
       <Footer />
     </div>
