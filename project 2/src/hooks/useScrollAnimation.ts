@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useAnimation, AnimationControls } from 'framer-motion';
+import { useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 interface ScrollAnimationConfig {
@@ -24,14 +24,14 @@ export function useScrollAnimation({ threshold = 0.1, delay = 0 }: ScrollAnimati
     ref,
     controls,
     variants: {
-      hidden: { opacity: 0, y: 30 },
+      hidden: { opacity: 0, y: 20 },
       visible: {
         opacity: 1,
         y: 0,
         transition: {
-          duration: 0.6,
-          delay,
-          ease: [0.22, 1, 0.36, 1],
+          duration: 0.4,
+          delay: delay * 0.5, // Reducimos el delay
+          ease: 'easeOut',
         },
       },
     },
@@ -47,15 +47,15 @@ export function useSlideAnimation(direction: 'left' | 'right', config: ScrollAni
     variants: {
       hidden: {
         opacity: 0,
-        x: direction === 'left' ? -50 : 50,
+        x: direction === 'left' ? -20 : 20, // Reducimos la distancia
       },
       visible: {
         opacity: 1,
         x: 0,
         transition: {
-          duration: 0.6,
-          delay: config.delay || 0,
-          ease: [0.22, 1, 0.36, 1],
+          duration: 0.4,
+          delay: (config.delay || 0) * 0.5, // Reducimos el delay
+          ease: 'easeOut',
         },
       },
     },

@@ -26,35 +26,48 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <div className="py-24 bg-white">
+    <div className="py-24 bg-gradient-to-br from-[#007B8A]/5 to-white">
       <div className="container mx-auto px-6">
         <FadeInView>
-          <h2 className="text-4xl font-bold text-center mb-16">What Our Clients Say</h2>
+          <div className="text-center mb-16">
+            <span className="text-[#007B8A] font-semibold bg-[#007B8A]/10 px-4 py-2 rounded-full inline-block mb-4">
+              Testimonials
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#000000] to-[#007B8A] bg-clip-text text-transparent">
+              What Our Clients Say
+            </h2>
+          </div>
         </FadeInView>
         
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <FadeInView key={index} delay={index * 0.2}>
               <motion.div
-                whileHover={{ y: -5 }}
-                className="bg-gray-50 p-8 rounded-lg"
+                whileHover={{ y: -10, scale: 1.02 }}
+                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100"
               >
                 <div className="flex gap-1 mb-6">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 fill-[#007B8A] text-[#007B8A]" />
                   ))}
                 </div>
-                <p className="text-[#555555] mb-6 italic">"{testimonial.quote}"</p>
+                <p className="text-[#555555] mb-8 italic text-lg">"{testimonial.quote}"</p>
                 <div className="flex items-center gap-4">
-                  <motion.img
+                  <motion.div
                     whileHover={{ scale: 1.1 }}
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full object-cover"
-                  />
+                    className="relative"
+                  >
+                    <div className="w-14 h-14 rounded-full overflow-hidden ring-4 ring-[#007B8A]/20">
+                      <img
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </motion.div>
                   <div>
-                    <h4 className="font-semibold">{testimonial.name}</h4>
-                    <p className="text-sm text-[#555555]">{testimonial.role}</p>
+                    <h4 className="font-bold text-lg">{testimonial.name}</h4>
+                    <p className="text-sm text-[#007B8A]">{testimonial.role}</p>
                   </div>
                 </div>
               </motion.div>

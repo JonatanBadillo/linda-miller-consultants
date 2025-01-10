@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 interface NavLinkProps {
   href: string;
@@ -9,12 +10,14 @@ interface NavLinkProps {
 
 export function NavLink({ href, children, className = '', onClick }: NavLinkProps) {
   return (
-    <a
+    <motion.a
       href={href}
-      className={`text-[#555555] hover:text-[#007B8A] transition-colors ${className}`}
+      className={className}
       onClick={onClick}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
     >
       {children}
-    </a>
+    </motion.a>
   );
 }
