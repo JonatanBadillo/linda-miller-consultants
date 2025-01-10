@@ -13,7 +13,7 @@ const contactInfo = [
   {
     icon: Phone,
     title: 'Phone',
-    content: '(123) 456-7890',
+    content: '(123) 456-7891',
     link: 'tel:+1234567890'
   },
   {
